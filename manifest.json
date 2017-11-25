@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Yahoo Fantasy Basketball Extender",
   "short_name": "yahoo fbb extender",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Enhances yahoo fantasy basketball!",
   "icons": { 
     "96": "basketball.png",
@@ -10,7 +10,6 @@
   },
   "homepage_url": "https://github.com/sahilda/yahoo-fantasybb-extender",
   "permissions": [
-    "tabs",
     "activeTab"
   ],
   "content_scripts": [

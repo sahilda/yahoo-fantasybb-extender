@@ -118,10 +118,6 @@ function getTeamPosition(liveScoring, player) {
     }
 }
 
-var test = function() {
-    console.log("Test")
-}
-
 function main() {
     var liveScoring = getLiveScoring();
     var week = getCurrentWeek();
