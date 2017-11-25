@@ -1,10 +1,3 @@
-function getCurrentWeek() {
-    var currentDate = new Date();
-    var startDate = new Date("10/16/2017");
-    var day = 1000 * 60 * 60 * 24    
-    return Math.floor((currentDate - startDate) / day / 7)
-};
-
 var teamMap = {
     "Atl":"Atlanta Hawks",
     "Bkn":"Brooklyn Nets",
@@ -72,22 +65,98 @@ var teamSchedule = {
 	"Washington Wizards": [2, 4, 3, 3, 4, 3, 3, 4, 4, 3, 4, 3, 3, 3, 3, 3, 4, 1, 3, 4, 3, 3, 3, 4, 3, 2]
 };
 
-var players = document.getElementsByClassName("ysf-player-name Nowrap Grid-u Relative Lh-xs Ta-start");
-var week = getCurrentWeek();
-for (var i in players) {
-    var player = players[i];
-    if (typeof player === 'object') {        
-        var name = player.getElementsByClassName("Nowrap")[0].innerHTML;
-        var team_position = player.getElementsByClassName("Fz-xxs")[0].innerHTML;
-        var team = team_position.split("-")[0];
-        team = team.substring(0, team.length - 1);
-        console.log(teamMap[team])        
-        var gamesLeft = teamSchedule[teamMap[team]][week]
-        var span = document.createElement("span");
-        span.style.color = 'firebrick';
-        var node = document.createTextNode("(" + gamesLeft + ")");
-        span.appendChild(node);
-        player.getElementsByClassName("Fz-xxs")[0].innerHTML = team_position + " - "
-        player.getElementsByClassName("Fz-xxs")[0].appendChild(span);
+function getDateFromURL() {
+    var search = window.location.search;
+    if (search.includes("date=")) {
+        var date = new Date(search.split("date=")[1].split("&")[0]);
+        return new Date(date.getTime() + date.getTimezoneOffset() * 60000);
+    }
+    return new Date();
+}
+
+function getWeekFromURL() {
+    var search = window.location.search;
+    if (search.includes("week=")) {
+        return search.split("week=")[1].split("&")[0] - 1;
+    }
+    return -1;
+}
+
+function getCurrentWeek() {
+    if (getWeekFromURL() != -1) {
+        return getWeekFromURL();
+    }
+    var currentDate = getDateFromURL();
+    var startDate = new Date("10/16/2017");
+    var day = 1000 * 60 * 60 * 24    
+    return Math.floor((currentDate - startDate) / day / 7)
+};
+
+function getLiveScoring() {
+    if (document.getElementsByClassName("ysf-player-name Nowrap Grid-u Relative Lh-xs Ta-start").length == 0) {
+        return true;
+    }
+    return false;
+}
+
+function getPlayers(liveScoring) {
+    if (liveScoring) {
+        return document.getElementsByClassName("D(ib) Pstart(5px) Fz(11px)");        
+    }
+    return document.getElementsByClassName("ysf-player-name Nowrap Grid-u Relative Lh-xs Ta-start");
+}
+
+function getTimer() {
+    return 1000;
+}
+
+function getTeamPosition(liveScoring, player) {
+    if (liveScoring) {
+        return player.innerText;
+    } else {
+        return player.getElementsByClassName("Fz-xxs")[0].innerHTML;
     }
 }
+
+var test = function() {
+    console.log("Test")
+}
+
+function main() {
+    var liveScoring = getLiveScoring();
+    var week = getCurrentWeek();
+    var players = getPlayers(liveScoring);
+    for (var i in players) {
+        var player = players[i];    
+        if (typeof player === 'object' && !player.innerText.includes("Empty")) {
+            var team_position = getTeamPosition(liveScoring, player);
+            var team = team_position.split("-")[0];
+            team = team.substring(0, team.length - 1);
+            var gamesLeft = teamSchedule[teamMap[team]][week]
+            var span = document.createElement("span");
+            span.style.color = 'firebrick';
+            var node = document.createTextNode("(" + gamesLeft + ")");
+            span.appendChild(node);
+            if (liveScoring) {
+                player.innerText = team_position + " - "
+                player.appendChild(span);
+            } else {
+                player.getElementsByClassName("Fz-xxs")[0].innerHTML = team_position + " - "
+                player.getElementsByClassName("Fz-xxs")[0].appendChild(span);
+            }        
+        }
+    }
+
+    var next = document.getElementsByClassName("last  Inlineblock");
+    for (var i = 0 ; i < next.length; i++) {
+        next[i].addEventListener('click' , function(){ setTimeout(function() { main(); }, getTimer()); }, false) ; 
+    }
+
+    var prev = document.getElementsByClassName("first  Inlineblock Mend-xxl");
+    for (var i = 0 ; i < prev.length; i++) {
+        prev[i].addEventListener('click' , function(){ setTimeout(function() { main(); }, getTimer()); }, false) ; 
+    }
+}
+
+console.log("Thanks for using fbb extender!")
+setTimeout(function() { main(); }, getTimer());

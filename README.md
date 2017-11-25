@@ -7,7 +7,6 @@ The extension can be found here: [https://chrome.google.com/webstore/detail/yaho
 
 ## TODOs
 * Change the display from total games this week to games left this week (will require a better set).
-* In the [players list page](https://basketball.fantasysports.yahoo.com/nba/161459/players), the games left stat does not load when a user hits the 'Next 25' button on the bottom.
 
 ## Credits
 * Weekly game schedule was found here: [https://basketballmonster.com/ScheduleGrid.aspx].
