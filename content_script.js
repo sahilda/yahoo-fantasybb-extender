@@ -88,8 +88,8 @@ function getCurrentWeek() {
     }
     var currentDate = getDateFromURL();
     var startDate = new Date("10/16/2017");
-    var day = 1000 * 60 * 60 * 24    
-    return Math.floor((currentDate - startDate) / day / 7)
+    var day = 1000 * 60 * 60 * 24;
+    return Math.floor((currentDate - startDate) / day / 7);
 };
 
 function getLiveScoring() {
@@ -118,41 +118,61 @@ function getTeamPosition(liveScoring, player) {
     }
 }
 
+function addHeader(week) {    
+    var header = document.getElementsByClassName("First Last");
+    var max = 2;
+    if (header.length == 0) {
+        header = document.getElementsByClassName("Alt Last");
+        max = 1;
+    }
+    var elements = header[0].getElementsByClassName("Ta-start");
+    for (var i = 0; i < max; i++) {
+        console.log(elements[i]);
+        var span = document.createElement("span");
+        span.style.color = 'firebrick';
+        var node = document.createTextNode("(Showing games for week " + (week + 1) +")");
+        span.appendChild(node);
+        elements[i].appendChild(span);
+    };
+}
+
 function main() {
     var liveScoring = getLiveScoring();
     var week = getCurrentWeek();
+    console.log("Showing games for week " + (week + 1));
     var players = getPlayers(liveScoring);
     for (var i in players) {
         var player = players[i];    
         if (typeof player === 'object' && !player.innerText.includes("Empty")) {
-            var team_position = getTeamPosition(liveScoring, player);
-            var team = team_position.split("-")[0];
+            var teamPosition = getTeamPosition(liveScoring, player);
+            var team = teamPosition.split("-")[0];
             team = team.substring(0, team.length - 1);
-            var gamesLeft = teamSchedule[teamMap[team]][week]
+            var gamesLeft = teamSchedule[teamMap[team]][week];
             var span = document.createElement("span");
             span.style.color = 'firebrick';
             var node = document.createTextNode("(" + gamesLeft + ")");
             span.appendChild(node);
             if (liveScoring) {
-                player.innerText = team_position + " - "
+                player.innerText = teamPosition + " - ";
                 player.appendChild(span);
             } else {
-                player.getElementsByClassName("Fz-xxs")[0].innerHTML = team_position + " - "
+                player.getElementsByClassName("Fz-xxs")[0].innerHTML = teamPosition + " - ";
                 player.getElementsByClassName("Fz-xxs")[0].appendChild(span);
             }        
         }
     }
+    addHeader(week);
 
     var next = document.getElementsByClassName("last  Inlineblock");
     for (var i = 0 ; i < next.length; i++) {
-        next[i].addEventListener('click' , function(){ setTimeout(function() { main(); }, getTimer()); }, false) ; 
+        next[i].addEventListener('click' , function(){ setTimeout(function() { main(); }, getTimer()); }, false); 
     }
 
     var prev = document.getElementsByClassName("first  Inlineblock Mend-xxl");
     for (var i = 0 ; i < prev.length; i++) {
-        prev[i].addEventListener('click' , function(){ setTimeout(function() { main(); }, getTimer()); }, false) ; 
+        prev[i].addEventListener('click' , function(){ setTimeout(function() { main(); }, getTimer()); }, false); 
     }
 }
 
-console.log("Thanks for using fbb extender!")
+console.log("Thanks for using fbb extender!");
 setTimeout(function() { main(); }, getTimer());
