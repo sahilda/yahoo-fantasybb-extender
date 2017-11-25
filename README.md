@@ -1,9 +1,10 @@
 # Yahoo Fantasy Basketball Extender
 
-A google chrome extension for yahoo fantasy basketball, showing the total games each player is playing this week.
+An extension for yahoo fantasy basketball, showing the total games each player is playing this week.
 <img src='https://i.imgur.com/0wrUEC2.png' title='Screenshot' width='' alt='Screenshot' />
 
-The extension can be found here: [https://chrome.google.com/webstore/detail/yahoo-fantasy-basketball/dajecldpmkjkhofjdmblkcgplmapkiee].
+* Google Chrome extension: [https://chrome.google.com/webstore/detail/yahoo-fantasy-basketball/dajecldpmkjkhofjdmblkcgplmapkiee]
+* Firefox extension: [https://addons.mozilla.org/en-US/firefox/addon/yahoo-fantasy-basketball-addon/]
 
 ## TODOs
 * Change the display from total games this week to games left this week (will require a better set).

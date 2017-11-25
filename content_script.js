@@ -107,7 +107,7 @@ function getPlayers(liveScoring) {
 }
 
 function getTimer() {
-    return 1000;
+    return 750;
 }
 
 function getTeamPosition(liveScoring, player) {
@@ -121,24 +121,37 @@ function getTeamPosition(liveScoring, player) {
 function addHeader(week) {    
     var header = document.getElementsByClassName("First Last");
     var max = 2;
-    if (header.length == 0) {
+    if (document.getElementsByClassName("Alt Last").length > 0) {
         header = document.getElementsByClassName("Alt Last");
         max = 1;
     }
     var elements = header[0].getElementsByClassName("Ta-start");
-    for (var i = 0; i < max; i++) {
-        console.log(elements[i]);
-        var span = document.createElement("span");
-        span.style.color = 'firebrick';
-        var node = document.createTextNode("(Showing games for week " + (week + 1) +")");
-        span.appendChild(node);
-        elements[i].appendChild(span);
+    for (var i in elements) {        
+        if (typeof elements[i] === 'object' && elements[i].innerText.includes("Player")) {
+            var span = document.createElement("span");
+            span.style.color = 'firebrick';
+            var node = document.createTextNode("(Showing games for week " + (week + 1) +")");
+            span.appendChild(node);
+            elements[i].appendChild(span);
+        }        
     };
+}
+
+function getGamesLeftSpan(gamesLeft) {
+    var span = document.createElement("span");
+    span.style.color = 'firebrick';
+    var node = document.createTextNode(" - (" + gamesLeft + ")");
+    span.appendChild(node);
+    return span;
 }
 
 function main() {
     var liveScoring = getLiveScoring();
     var week = getCurrentWeek();
+    if (week > 25 || week < 0) {
+        console.log("No data for week " + (week + 1));
+        return;
+    }
     console.log("Showing games for week " + (week + 1));
     var players = getPlayers(liveScoring);
     for (var i in players) {
@@ -147,30 +160,28 @@ function main() {
             var teamPosition = getTeamPosition(liveScoring, player);
             var team = teamPosition.split("-")[0];
             team = team.substring(0, team.length - 1);
-            var gamesLeft = teamSchedule[teamMap[team]][week];
-            var span = document.createElement("span");
-            span.style.color = 'firebrick';
-            var node = document.createTextNode("(" + gamesLeft + ")");
-            span.appendChild(node);
+            var gamesLeft = teamSchedule[teamMap[team]][week];            
             if (liveScoring) {
-                player.innerText = teamPosition + " - ";
-                player.appendChild(span);
+                player.appendChild(getGamesLeftSpan(gamesLeft));
             } else {
-                player.getElementsByClassName("Fz-xxs")[0].innerHTML = teamPosition + " - ";
-                player.getElementsByClassName("Fz-xxs")[0].appendChild(span);
+                player.getElementsByClassName("Fz-xxs")[0].appendChild(getGamesLeftSpan(gamesLeft));
             }        
         }
     }
     addHeader(week);
 
-    var next = document.getElementsByClassName("last  Inlineblock");
+    var next = document.getElementsByClassName("last");
     for (var i = 0 ; i < next.length; i++) {
-        next[i].addEventListener('click' , function(){ setTimeout(function() { main(); }, getTimer()); }, false); 
+        if (next[i].innerText.includes("Next")) {
+            next[i].addEventListener('click' , function(){ setTimeout(function() { main(); }, getTimer()); }, false); 
+        }
     }
 
-    var prev = document.getElementsByClassName("first  Inlineblock Mend-xxl");
+    var prev = document.getElementsByClassName("first");
     for (var i = 0 ; i < prev.length; i++) {
-        prev[i].addEventListener('click' , function(){ setTimeout(function() { main(); }, getTimer()); }, false); 
+        if (prev[i].innerText.includes("Previous")) {
+            prev[i].addEventListener('click' , function(){ setTimeout(function() { main(); }, getTimer()); }, false); 
+        }
     }
 }
 
