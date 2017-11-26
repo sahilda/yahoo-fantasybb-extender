@@ -118,29 +118,42 @@ function getTeamPosition(liveScoring, player) {
     }
 }
 
-function addHeader(week) {    
+function addHeader(liveScoring, week) {    
     var header = document.getElementsByClassName("First Last");
-    var max = 2;
     if (document.getElementsByClassName("Alt Last").length > 0) {
         header = document.getElementsByClassName("Alt Last");
-        max = 1;
+    }   
+    var elements; 
+    if (liveScoring) {
+        header = document.getElementsByClassName("Bdbw(1px) Bdb(table-border) Bdbs(s) Ta(c) Bgc(table-hdr-bg) H(25px) Fz(11px) C(gray1)");        
+        elements = header[0].getElementsByClassName("Ta(start)");
+    } else {
+        elements = header[0].getElementsByClassName("Ta-start");
     }
-    var elements = header[0].getElementsByClassName("Ta-start");
+        
     for (var i in elements) {        
         if (typeof elements[i] === 'object' && elements[i].innerText.includes("Player")) {
             var span = document.createElement("span");
             span.style.color = 'firebrick';
-            var node = document.createTextNode("(Showing games for week " + (week + 1) +")");
+            var node = document.createTextNode("\n(Showing games for week " + (week + 1) +")");
             span.appendChild(node);
             elements[i].appendChild(span);
         }        
     };
 }
 
-function getGamesLeftSpan(gamesLeft) {
+function getDash() {    
+    var span = document.createElement("span");
+    span.style.color = 'black';
+    var node = document.createTextNode(" - ");
+    span.appendChild(node);
+    return span;
+}
+
+function getGamesLeftSpan(gamesLeft) {    
     var span = document.createElement("span");
     span.style.color = 'firebrick';
-    var node = document.createTextNode(" - (" + gamesLeft + ")");
+    var node = document.createTextNode("(" + gamesLeft + ")");
     span.appendChild(node);
     return span;
 }
@@ -162,13 +175,15 @@ function main() {
             team = team.substring(0, team.length - 1);
             var gamesLeft = teamSchedule[teamMap[team]][week];            
             if (liveScoring) {
+                player.appendChild(getDash());
                 player.appendChild(getGamesLeftSpan(gamesLeft));
             } else {
+                player.getElementsByClassName("Fz-xxs")[0].appendChild(getDash());
                 player.getElementsByClassName("Fz-xxs")[0].appendChild(getGamesLeftSpan(gamesLeft));
             }        
         }
     }
-    addHeader(week);
+    addHeader(liveScoring, week);
 
     var next = document.getElementsByClassName("last");
     for (var i = 0 ; i < next.length; i++) {
