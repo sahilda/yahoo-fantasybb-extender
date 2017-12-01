@@ -131,18 +131,46 @@ function getTeamPosition(liveScoring, player) {
 }
 
 function addHeader(liveScoring, week) {    
-    var header = document.getElementsByClassName("First Last");    
-    if (header.length < 1 && document.getElementsByClassName("Alt Last").length > 0) {
-        header = document.getElementsByClassName("Alt Last");
-    }
-    var elements; 
+    var header;
+    var elements;
     if (liveScoring) {
         header = document.getElementsByClassName("Bdbw(1px) Bdb(table-border) Bdbs(s) Ta(c) Bgc(table-hdr-bg) H(25px) Fz(11px) C(gray1)");        
-        elements = header[0].getElementsByClassName("Ta(start)");
+        for (var i in header) {            
+            try {
+                elements = header[i].getElementsByClassName("Ta(start)");    
+                addHeaderNode(elements, week);
+            } catch (err) {
+                
+            }
+        }
     } else {
-        elements = header[0].getElementsByClassName("Ta-start");
+        header = document.getElementsByClassName("First Last");
+        if (header.length > 0) {
+            for (var i in header) {
+                try {
+                    elements = header[i].getElementsByClassName("Ta-start");    
+                    addHeaderNode(elements, week);
+                } catch (err) {
+                    
+                }
+            }            
+        } 
+        header = document.getElementsByClassName("Alt Last");
+        if (header.length > 0) {
+            for (var i in header) {
+                try {
+                    elements = header[i].getElementsByClassName("Ta-start");    
+                    addHeaderNode(elements, week);
+                } catch (err) {
+
+                }
+            }
+        }
     }
-        
+            
+}
+
+function addHeaderNode(elements, week) {
     for (var i in elements) {        
         if (typeof elements[i] === 'object' && elements[i].innerText.includes("Player")) {
             var span = document.createElement("span");
