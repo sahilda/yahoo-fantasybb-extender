@@ -65,6 +65,14 @@ var teamSchedule = {
 	"Washington Wizards": [2, 4, 3, 3, 4, 3, 3, 4, 4, 3, 4, 3, 3, 3, 3, 3, 4, 1, 3, 4, 3, 3, 3, 4, 3, 2]
 };
 
+function isAddPlayerPage() {
+    var pathname = window.location.pathname;
+    if (pathname.includes("players")) {
+        return true;
+    }
+    return false;
+}
+
 function getDateFromURL() {
     var search = window.location.search;
     if (search.includes("date=")) {
@@ -89,7 +97,11 @@ function getCurrentWeek() {
     var currentDate = getDateFromURL();
     var startDate = new Date("10/16/2017");
     var day = 1000 * 60 * 60 * 24;
-    return Math.floor((currentDate - startDate) / day / 7);
+    var week = Math.floor((currentDate - startDate) / day / 7);
+    if (isAddPlayerPage()) {
+        return week + 1;
+    };
+    return week;
 };
 
 function getLiveScoring() {
@@ -119,10 +131,10 @@ function getTeamPosition(liveScoring, player) {
 }
 
 function addHeader(liveScoring, week) {    
-    var header = document.getElementsByClassName("First Last");
-    if (document.getElementsByClassName("Alt Last").length > 0) {
+    var header = document.getElementsByClassName("First Last");    
+    if (header.length < 1 && document.getElementsByClassName("Alt Last").length > 0) {
         header = document.getElementsByClassName("Alt Last");
-    }   
+    }
     var elements; 
     if (liveScoring) {
         header = document.getElementsByClassName("Bdbw(1px) Bdb(table-border) Bdbs(s) Ta(c) Bgc(table-hdr-bg) H(25px) Fz(11px) C(gray1)");        
@@ -135,7 +147,11 @@ function addHeader(liveScoring, week) {
         if (typeof elements[i] === 'object' && elements[i].innerText.includes("Player")) {
             var span = document.createElement("span");
             span.style.color = 'firebrick';
-            var node = document.createTextNode("\n(Showing games for week " + (week + 1) +")");
+            var text = ("\n(Showing games for week " + (week + 1) +")");
+            if (isAddPlayerPage()) {
+                text = ("\n(Showing games for next week - week " + (week + 1) +")");
+            };
+            var node = document.createTextNode(text);
             span.appendChild(node);
             elements[i].appendChild(span);
         }        
