@@ -93,7 +93,11 @@ function getDateFromURL() {
 function getWeekFromURL() {
     var search = window.location.search;
     if (search.includes("week=")) {
-        return search.split("week=")[1].split("&")[0] - 1;
+        var week = search.split("week=")[1].split("&")[0] - 1;
+        if (isMatchupPage()) {
+            return week + 1;
+        };
+        return week;
     }
     return -1;
 }
@@ -106,7 +110,7 @@ function getCurrentWeek() {
     var startDate = new Date("10/16/2017");
     var day = 1000 * 60 * 60 * 24;
     var week = Math.floor((currentDate - startDate) / day / 7);
-    if (isAddPlayerPage() || isMatchupPage()) {
+    if (isAddPlayerPage()) {
         return week + 1;
     };
     return week;
