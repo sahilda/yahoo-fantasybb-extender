@@ -73,6 +73,14 @@ function isAddPlayerPage() {
     return false;
 }
 
+function isMatchupPage() {
+    var pathname = window.location.pathname;
+    if (pathname.includes("matchup")) {
+        return true;
+    }
+    return false;
+}
+
 function getDateFromURL() {
     var search = window.location.search;
     if (search.includes("date=")) {
@@ -98,7 +106,7 @@ function getCurrentWeek() {
     var startDate = new Date("10/16/2017");
     var day = 1000 * 60 * 60 * 24;
     var week = Math.floor((currentDate - startDate) / day / 7);
-    if (isAddPlayerPage()) {
+    if (isAddPlayerPage() || isMatchupPage()) {
         return week + 1;
     };
     return week;
