@@ -1,3 +1,6 @@
+# 12-16-2020 v1.8.0
+* Updated for the 2019-2020 basketball season
+
 # 10-21-2019 v1.7.0
 * Updated for the 2019-2020 basketball season
 

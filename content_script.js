@@ -33,36 +33,36 @@ var teamMap = {
 };
 
 var teamSchedule = {
-    "ATL":[2,3,4,4,3,4,3,4,3,3,3,4,3,4,3,4,2,2,4,3,3,4,3,3,3,1],
-    "BKN":[3,3,3,3,4,4,3,3,3,2,3,4,3,4,3,3,2,2,4,4,4,2,4,4,3,2],
-    "BOS":[3,2,3,4,3,4,2,3,3,3,3,4,4,4,3,4,2,2,3,4,4,3,4,3,3,2],
-    "CHA":[3,3,4,3,4,4,4,4,4,2,3,4,2,2,3,3,2,2,4,3,4,3,3,4,3,2],
-    "CHI":[3,4,3,3,4,3,4,4,3,2,3,4,4,4,4,2,1,3,2,4,4,3,3,3,3,2],
-    "CLE":[2,4,3,3,4,3,3,4,3,3,4,3,4,3,4,3,1,2,4,4,3,3,3,4,3,2],
-    "DAL":[3,3,3,3,4,3,4,2,4,3,3,4,3,3,4,4,2,2,4,4,3,4,3,3,2,2],
-    "DEN":[2,4,3,3,3,2,4,4,3,4,3,4,3,4,4,3,2,2,3,3,4,3,3,4,3,2],
-    "DET":[3,4,3,3,3,4,3,3,4,3,4,3,3,4,4,4,2,2,3,3,2,3,4,3,3,2],
-    "GSW":[2,4,4,4,3,4,3,4,2,4,3,4,3,3,3,3,2,2,4,3,3,4,3,3,3,2],
-    "HOU":[2,4,3,4,4,2,3,4,3,4,2,3,3,4,4,4,1,2,3,4,3,3,4,3,4,2],
-    "IND":[2,4,4,3,2,4,4,4,3,3,3,3,4,4,2,4,2,2,3,4,2,3,4,4,3,2],
-    "LAC":[3,4,2,4,4,4,3,4,4,2,4,2,3,4,3,4,2,1,4,3,3,3,4,3,3,2],
-    "LAL":[3,3,3,4,3,4,4,3,3,3,3,3,3,4,3,3,2,2,4,3,3,4,3,4,3,2],
-    "MEM":[3,2,4,4,2,4,3,4,4,4,3,3,2,4,3,4,1,2,4,4,3,4,3,4,2,2],
-    "MIA":[3,3,3,3,3,4,4,3,3,3,4,3,3,3,3,4,2,2,4,4,3,3,3,4,3,2],
-    "MIL":[2,4,4,2,4,4,3,4,4,3,3,4,3,2,3,3,2,2,4,4,3,3,4,3,4,1],
-    "MIN":[3,2,4,4,3,3,3,3,3,3,4,3,4,4,2,3,2,2,4,4,3,4,3,4,3,2],
-    "NOR":[3,3,3,4,4,3,3,4,3,4,2,4,3,4,3,3,2,2,3,4,3,4,3,3,3,2],
-    "NYK":[3,4,3,3,4,3,3,4,3,3,3,4,3,4,3,4,1,1,4,4,3,3,4,3,3,2],
-    "OKC":[3,3,4,2,3,4,3,3,4,3,3,4,4,4,3,3,2,2,3,4,3,3,3,4,3,2],
-    "ORL":[2,4,4,3,2,4,3,4,3,3,4,3,4,4,2,4,2,1,4,4,3,3,4,3,3,2],
-    "PHI":[2,3,4,4,3,4,4,4,3,4,2,3,4,3,3,4,1,2,4,3,2,4,4,3,3,2],
-    "PHO":[3,3,3,2,5,2,4,3,4,3,4,3,3,4,3,4,2,2,4,3,2,3,4,4,3,2],
-    "POR":[3,3,4,3,4,3,4,2,4,3,4,3,4,3,3,4,2,2,3,4,3,3,4,3,2,2],
-    "SAC":[3,4,2,3,3,3,4,4,3,4,3,3,3,3,4,3,2,2,4,4,2,4,3,4,3,2],
-    "SAS":[2,4,3,4,4,4,2,2,3,3,3,4,3,4,3,4,2,2,2,4,3,4,4,3,4,2],
-    "TOR":[3,3,3,3,3,4,3,3,4,4,3,3,3,4,4,3,2,2,3,3,2,4,3,4,4,2],
-    "UTA":[3,4,2,3,4,4,3,3,3,3,3,4,3,3,4,3,2,2,3,4,4,4,3,4,2,2],
-    "WAS":[3,2,3,3,3,4,4,2,4,3,4,4,2,4,3,3,2,2,4,4,3,4,4,3,3,2]
+    "ATL":[2,4,3,4,4,3,4,3,4,4,2,1,4,3,4,4,4,3,3,4,4,1],
+    "BKN":[3,4,4,3,4,4,3,3,4,3,2,2,4,4,3,4,4,3,3,4,3,1],
+    "BOS":[3,4,4,4,3,3,4,3,4,4,2,2,4,4,4,3,3,4,3,4,3,0],
+    "CHA":[3,3,4,4,3,4,4,4,3,4,2,1,4,4,4,3,4,4,4,3,2,1],
+    "CHI":[3,4,4,3,3,3,4,3,4,4,2,1,5,4,3,3,3,4,4,3,4,1],
+    "CLE":[3,3,4,4,4,4,4,4,3,3,2,1,4,4,4,4,4,4,4,2,3,0],
+    "DAL":[3,3,3,4,4,4,4,4,2,4,2,2,3,3,4,4,4,4,4,3,3,1],
+    "DEN":[2,4,4,3,3,4,3,4,4,3,3,2,3,3,4,3,4,3,4,4,3,2],
+    "DET":[2,4,4,3,4,4,4,3,4,4,1,1,4,4,3,4,4,4,3,4,3,1],
+    "GSW":[3,3,4,3,4,4,3,4,4,4,1,2,3,4,4,3,4,3,4,4,3,1],
+    "HOU":[2,3,4,3,4,3,4,4,4,4,2,1,3,4,3,4,3,4,4,4,4,1],
+    "IND":[3,3,3,5,3,4,4,3,3,4,3,1,4,3,4,4,4,4,3,3,3,1],
+    "LAC":[3,4,4,3,3,4,4,3,4,4,2,2,4,4,3,3,4,4,3,3,4,0],
+    "LAL":[3,4,4,3,3,4,3,4,3,4,2,2,4,4,4,2,4,3,4,3,4,1],
+    "MEM":[2,4,3,4,4,3,4,4,3,4,2,1,4,4,2,4,3,4,4,3,4,2],
+    "MIA":[2,3,4,3,4,4,4,3,4,4,2,2,3,2,4,4,4,4,3,4,4,1],
+    "MIL":[3,3,4,3,4,3,4,4,4,3,2,2,4,3,4,3,3,4,4,4,3,1],
+    "MIN":[3,3,4,2,4,4,4,4,4,4,1,1,4,3,3,3,4,4,4,4,3,2],
+    "NOR":[3,3,3,4,3,4,4,3,4,3,3,2,3,4,3,3,4,4,4,3,3,2],
+    "NYK":[3,3,4,4,4,3,4,3,4,4,1,1,4,4,4,4,2,3,4,3,4,2],
+    "OKC":[2,4,4,4,3,3,4,4,3,4,2,1,4,4,4,3,4,3,4,3,4,1],
+    "ORL":[3,3,4,4,4,4,3,4,3,3,2,1,4,4,4,4,4,3,4,3,3,1],
+    "PHI":[3,3,4,5,3,4,3,3,4,3,2,1,4,4,4,4,4,3,3,4,3,1],
+    "PHO":[3,4,3,4,4,3,4,4,3,4,1,1,5,3,4,4,3,4,3,4,3,1],
+    "POR":[2,4,3,4,4,3,4,4,3,3,3,1,4,3,4,4,3,3,5,3,4,1],
+    "SAC":[3,3,4,4,3,4,4,3,4,4,2,1,4,4,4,3,4,3,4,3,4,0],
+    "SAS":[3,3,4,3,4,4,3,4,3,3,3,1,4,3,4,4,4,3,4,3,3,2],
+    "TOR":[2,3,4,3,4,4,3,4,4,4,2,1,3,4,3,4,4,3,4,4,4,1],
+    "UTA":[2,4,4,4,3,4,4,3,3,4,2,1,4,4,4,3,3,4,3,4,3,2],
+    "WAS":[3,4,3,4,4,4,2,3,3,5,2,1,5,3,4,4,4,3,3,2,4,2]
 }
 
 function isAddPlayerPage() {
@@ -93,7 +93,7 @@ function getDateFromURL() {
 function getWeekFromURL() {
     var search = window.location.search;
     if (search.includes("week=")) {
-        var week = search.split("week=")[1].split("&")[0];    
+        var week = search.split("week=")[1].split("&")[0];
         return week;
     }
     return -1;
@@ -104,7 +104,7 @@ function getCurrentWeek() {
         return getWeekFromURL();
     }
     var currentDate = getDateFromURL();
-    var startDate = new Date("10/21/2019");
+    var startDate = new Date("12/21/2020");
     var day = 1000 * 60 * 60 * 24;
     var week = Math.floor((currentDate - startDate) / day / 7) + 1;
     if (isAddPlayerPage()) {
@@ -122,7 +122,7 @@ function getLiveScoring() {
 
 function getPlayers(liveScoring) {
     if (liveScoring) {
-        return document.getElementsByClassName("D(ib) Pstart(5px) Fz(11px)");        
+        return document.getElementsByClassName("D(ib) Pstart(5px) Fz(11px)");
     }
     return document.getElementsByClassName("ysf-player-name Nowrap Grid-u Relative Lh-xs Ta-start");
 }
@@ -139,17 +139,17 @@ function getTeamPosition(liveScoring, player) {
     }
 }
 
-function addHeader(liveScoring, week) {    
+function addHeader(liveScoring, week) {
     var header;
     var elements;
     if (liveScoring) {
-        header = document.getElementsByClassName("Bdbw(1px) Bdb(table-border) Bdbs(s) Ta(c) Bgc(table-hdr-bg) H(25px) Fz(11px) C(gray1)");        
-        for (var i in header) {            
+        header = document.getElementsByClassName("Bdbw(1px) Bdb(table-border) Bdbs(s) Ta(c) Bgc(table-hdr-bg) H(25px) Fz(11px) C(gray1)");
+        for (var i in header) {
             try {
-                elements = header[i].getElementsByClassName("Ta(start)");    
+                elements = header[i].getElementsByClassName("Ta(start)");
                 addHeaderNode(elements, week);
             } catch (err) {
-                
+
             }
         }
     } else {
@@ -157,29 +157,29 @@ function addHeader(liveScoring, week) {
         if (header.length > 0) {
             for (var i in header) {
                 try {
-                    elements = header[i].getElementsByClassName("Ta-start");    
-                    addHeaderNode(elements, week);
-                } catch (err) {
-                    
-                }
-            }            
-        } 
-        header = document.getElementsByClassName("Alt Last");
-        if (header.length > 0) {
-            for (var i in header) {
-                try {
-                    elements = header[i].getElementsByClassName("Ta-start");    
+                    elements = header[i].getElementsByClassName("Ta-start");
                     addHeaderNode(elements, week);
                 } catch (err) {
 
                 }
             }
         }
-    }            
+        header = document.getElementsByClassName("Alt Last");
+        if (header.length > 0) {
+            for (var i in header) {
+                try {
+                    elements = header[i].getElementsByClassName("Ta-start");
+                    addHeaderNode(elements, week);
+                } catch (err) {
+
+                }
+            }
+        }
+    }
 }
 
 function addHeaderNode(elements, week) {
-    for (var i in elements) {        
+    for (var i in elements) {
         if (typeof elements[i] === 'object' && elements[i].innerText.includes("Player")) {
             var span = document.createElement("span");
             span.style.color = 'firebrick';
@@ -190,11 +190,11 @@ function addHeaderNode(elements, week) {
             var node = document.createTextNode(text);
             span.appendChild(node);
             elements[i].appendChild(span);
-        }        
+        }
     };
 }
 
-function getDash() {    
+function getDash() {
     var span = document.createElement("span");
     span.style.color = 'black';
     var node = document.createTextNode(" - ");
@@ -202,7 +202,7 @@ function getDash() {
     return span;
 }
 
-function getGamesLeftSpan(gamesLeft) {    
+function getGamesLeftSpan(gamesLeft) {
     var span = document.createElement("span");
     span.style.color = 'firebrick';
     var node = document.createTextNode("(" + gamesLeft + ") ");
@@ -213,26 +213,29 @@ function getGamesLeftSpan(gamesLeft) {
 function main() {
     var liveScoring = getLiveScoring();
     var week = getCurrentWeek();
-    if (week > 25 || week < 0) {
+    if (week > 22 || week < 0) {
         console.log("No data for week " + week);
         return;
+    }
+    if (week === 0) {
+        week = 1;
     }
     console.log("Showing games for week " + week);
     var players = getPlayers(liveScoring);
 
     for (var i in players) {
-        var player = players[i];    
+        var player = players[i];
         if (typeof player === 'object' && !player.innerText.includes("Empty")) {
             var teamPosition = getTeamPosition(liveScoring, player);
             var team = teamPosition.split("-")[0];
             team = team.substring(0, team.length - 1);
-            var gamesLeft = teamSchedule[teamMap[team]][week - 1];            
+            var gamesLeft = teamSchedule[teamMap[team]][week - 1];
             if (liveScoring) {
                 player.appendChild(getDash());
                 player.appendChild(getGamesLeftSpan(gamesLeft));
             } else {
                 player.prepend(getGamesLeftSpan(gamesLeft));
-            }        
+            }
         }
     }
     addHeader(liveScoring, week);
@@ -240,14 +243,14 @@ function main() {
     var next = document.getElementsByClassName("last");
     for (var i = 0 ; i < next.length; i++) {
         if (next[i].innerText.includes("Next")) {
-            next[i].addEventListener('click' , function(){ setTimeout(function() { main(); }, getTimer()); }, false); 
+            next[i].addEventListener('click' , function(){ setTimeout(function() { main(); }, getTimer()); }, false);
         }
     }
 
     var prev = document.getElementsByClassName("first");
     for (var i = 0 ; i < prev.length; i++) {
         if (prev[i].innerText.includes("Previous")) {
-            prev[i].addEventListener('click' , function(){ setTimeout(function() { main(); }, getTimer()); }, false); 
+            prev[i].addEventListener('click' , function(){ setTimeout(function() { main(); }, getTimer()); }, false);
         }
     }
 }
